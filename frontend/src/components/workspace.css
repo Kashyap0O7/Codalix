@@ -1,0 +1,427 @@
+/* Reset and Base */
+
+/* Add this if not present already */
+.run-controls {
+  padding: 10px;
+  background-color: #1e1e1e;
+  text-align: right;
+  border-top: 1px solid #444;
+  flex-shrink: 0;
+}
+
+.run-controls button {
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.run-controls button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.run-controls button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+/* Optional: ensure .editor-pane has room for it */
+.editor-pane {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Make sure the editor expands and leaves space for the controls/output */
+.editor-pane > .monaco-editor {
+  flex: 1 1 auto;
+  min-height: 300px;
+  overflow: hidden;
+}
+.stdin-input
+{
+  background: #111;
+  color: #0f0;
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  overflow: auto;
+  max-height: 150px;
+  border-top: 1px solid #444;
+  flex-shrink: 0;
+  margin-bottom: 16px;
+}
+.code-output {
+  background: #111;
+  color: #0f0;
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+  overflow: auto;
+  max-height: 150px;
+  border-top: 1px solid #444;
+  flex-shrink: 0;
+}
+
+.code-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  padding: 24px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.modal input,
+.modal select {
+  padding: 8px;
+  border: 1px solid #444;
+  background: #2c2c2c;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.modal button {
+  padding: 8px 12px;
+  margin-right: 8px;
+  border: none;
+  background-color: #007acc;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal button:hover {
+  background-color: #005fa3;
+}
+
+.preview-header {
+  background-color: #2a2a2a;
+  color: #00ffaa;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-bottom: 1px solid #444;
+}
+
+.preview-pane {
+  height: 40%;
+  border-top: 2px solid #333;
+  background-color: white;
+}
+
+.live-preview {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.file-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  color: #ccc;
+}
+
+.file-list li:not(.active-file):hover {
+  background-color: #444;
+  color: #fff;
+}
+
+.file-list li.active-file {
+  background-color: #00ffaa;
+  color: #000;
+  font-weight: bold;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Courier New", Courier, monospace;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.workspace-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Workspace Layout */
+.workspace-main {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 0px); /* Full height minus navbar (if removed) */
+  overflow: hidden;
+}
+.chat-send-btn{
+  margin-bottom: 16px; /* Adds spacing below the Add File button */
+}
+
+/* Vertical Toolbar */
+.vertical-toolbar {
+  width: 50px;
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  border-right: 1px solid #333;
+}
+
+.vertical-toolbar button {
+  background: none;
+  border: none;
+  color: #00ffaa;
+  margin: 10px 0;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.vertical-toolbar button:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* File Sidebar */
+.file-sidebar {
+  border-right: 1px solid #444;
+  border-top: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #1e1e1e;
+  color: white;
+  width: 300px; /* adjust as needed */
+  overflow: hidden;
+}
+
+.file-sidebar h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.file-sidebar button.chat-send-btn {
+  background-color: #00ffae;
+  color: black;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.file-sidebar button.chat-send-btn:hover {
+  background-color: #00e69d;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.file-list li {
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background-color: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-list li:hover,
+.file-list li.active-file {
+  background-color: #ffffff;
+}
+
+.file-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-sidebar li {
+  padding: 8px 10px;
+  background-color: #2a2a2a;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.file-sidebar li:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Resizer */
+.resizer {
+  width: 5px;
+  cursor: col-resize;
+  background-color: #333;
+  height: 100%;
+  z-index: 10;
+}
+.resizer:hover {
+  background-color: #00ffaa;
+}
+
+/* Code Editor */
+.code-editor {
+  flex: 1;
+  background-color: #1e1e1e;
+  overflow: hidden;
+  border-top: 2px solid #2f2f2f;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-editor .editor-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+}
+
+.code-editor .preview-pane {
+  height: 40%;
+  overflow: hidden;
+  background-color: #fff;
+  border-top: 2px solid #333;
+}
+
+.code-editor .run-controls {
+  margin-top: 8px;
+  padding: 10px;
+  background-color: #222;
+  border-top: 1px solid #333;
+  flex-shrink: 0;
+}
+
+/* Chat box styling */
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 15px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.chat-box h3 {
+  color: #00ffaa;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.chat-messages p {
+  margin: 5px 0;
+  color: #eee;
+  font-size: 14px;
+}
+
+.chat-box input {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+}
+
+.chat-input-row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #333;
+  background-color: #1a1a1a;
+  padding-top: 10px;
+}
+
+.chat-message-input {
+  flex: 1;
+  padding: 10px;
+  background-color: #2f2f2f;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.chat-send-btn {
+  background-color: #00ffaa;
+  border: none;
+  padding: 10px 16px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #000;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.chat-send-btn:hover {
+  background-color: #00e699;
+}
