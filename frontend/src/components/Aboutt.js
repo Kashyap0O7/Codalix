@@ -1,43 +1,40 @@
 import React from "react";
+import "./Aboutt.css";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-6">
-      <div className="w-full max-w-6xl bg-white -lg rounded-lg p-10">
-        <h2 className="text-4xl font-bold text-center text-blue-600 mb-6">
-          About JEE Testing App
-        </h2>
-        <p className="text-lg text-gray-700 text-center mb-8">
-          Your ultimate companion for JEE exam success! 🚀
+    <div className="about-page">
+      <div className="about-container">
+        <h1 className="about-title">About Codalix</h1>
+        <p className="about-description">
+          Codalix is a real-time collaborative code editor designed for aspiring developers, teams, and educators. 
+          Our platform allows users to create, share, and collaborate on code seamlessly, making it the perfect tool 
+          for pair programming, coding interviews, and team projects.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-blue-50 p-6 rounded-lg ">
-            <h3 className="text-xl font-semibold">
-              📚 Comprehensive JEE Preparation
-            </h3>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg ">
-            <h3 className="text-xl font-semibold">
-              🎯 Mock Tests & Practice Questions
-            </h3>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg ">
-            <h3 className="text-xl font-semibold">
-              📊 Instant Performance Analysis
-            </h3>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg ">
-            <h3 className="text-xl font-semibold">⏳ Time Management Tools</h3>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg ">
-            <h3 className="text-xl font-semibold">
-              📱 User-Friendly Interface
-            </h3>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg ">
-            <h3 className="text-xl font-semibold">🏆 Designed by Experts</h3>
-          </div>
-        </div>
+        <h2 className="about-subtitle">Features</h2>
+        <ul className="about-features">
+          <li>👩‍💻 Real-time collaboration with multiple users.</li>
+          <li>📂 Create and manage repositories for your projects.</li>
+          <li>🔒 Secure rooms with password protection.</li>
+          <li>🧠 AI assistance for code suggestions and debugging.</li>
+          <li>🌐 Support for multiple programming languages.</li>
+        </ul>
+        <h2 className="about-subtitle">Have Suggestions or Feedback?</h2>
+        <p className="about-description">
+          We value your feedback and would love to hear your suggestions for improving Codalix. Feel free to explore our 
+          repositories and contribute to the project:
+        </p>
+        <ul className="about-links">
+          <li>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Project Repository
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );
