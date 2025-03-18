@@ -66,7 +66,7 @@
 
 //       {/* Right Side: Illustration */}
 //       <div className="login-right">
-//         <p className="logo">MeetCode</p>
+//         <p className="logo">Codalix</p>
 //         <img src="/dev-illustration.png" alt="Developer Illustration" />
 //       </div>
 //     </div>
@@ -143,7 +143,7 @@ const Login = () => {
 
       {/* Right Side: Illustration */}
       <div className="login-right">
-        {/* <p className="title">MeetCode</p> */}
+        {/* <p className="title">Codalix</p> */}
         <img src="/dev-illustration.png" alt="Developer Illustration" />
       </div>
     </div>

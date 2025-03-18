@@ -17,10 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const JWT_SECRET = process.env.JWT_SECRET || "12345";
 const BASE_URL = process.env.FRONTEND_URL || "http://localhost:3000";
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  "mongodb+srv://arnavvv:C14hMPSHTpdcB5vq@arnavvv.isvph.mongodb.net/JEE";
-const DB_NAME = "Jee";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/codalix";
 
 // Create HTTP server
 const server = http.createServer(app);
@@ -40,7 +37,7 @@ let db;
 async function connectToDatabase() {
   try {
     await client.connect();
-    db = client.db(DB_NAME);
+    db = client.db();
     console.log("Connected to MongoDB");
   } catch (err) {
     console.error("MongoDB connection error:", err);
@@ -319,7 +316,7 @@ io.on("connection", (socket) => {
 
 // API Routes
 app.get("/", (req, res) => {
-  res.status(200).send("Welcome to the root URL of Meet Code Server");
+  res.status(200).send("Welcome to the root URL of Codalix Server");
 });
 
 app.get("/test", (req, res) => {
@@ -752,9 +749,7 @@ app.post("/api/run-code", authenticateToken, async (req, res) => {
         headers: {
           "content-type": "application/json",
           "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
-          "x-rapidapi-key":
-            process.env.RAPIDAPI_KEY ||
-            "2017184a89msh00d02f7b84ef328p117473jsnce88478ea638",
+          "x-rapidapi-key": process.env.RAPIDAPI_KEY,
         },
       }
     );
