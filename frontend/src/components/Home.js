@@ -93,7 +93,7 @@ const Home = () => {
     <div className="home-page">
       <div className="home-header">
         <div className="logo-icon">{"</>"}</div>
-        <h1 className="home-title">Welcome to MeetCode!</h1>
+        <h1 className="home-title">Welcome to Codalix!</h1>
         <p className="home-subtitle">
           A real time collaborative code editor for aspiring developers.
         </p>

@@ -28,7 +28,7 @@ const Navbar = (props) => {
         style={{ backgroundColor: "#1e1e1e" }}
       >
         <div className="container-fluid">
-          <div className="navbar-brand">MeetCode</div>
+          <div className="navbar-brand">Codalix</div>
           <div
             className="collapse navbar-collapse"
             id="navbarSupportedContent"
